@@ -1,0 +1,21 @@
+{
+  "name": "simple-js-pagination",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpayze/Simple-JS-Pagination.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpayze/Simple-JS-Pagination/issues"
+  },
+  "homepage": "https://github.com/wpayze/Simple-JS-Pagination#readme",
+  "type": "module"
+}
