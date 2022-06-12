@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div id="list">
-        
-    </div>
-    <div id="pagination">
-
-    </div>
+  </head>
+  <body>
+    <div id="list"></div>
+    <div id="pagination"></div>
 
     <script src="./simplejspagination.js"></script>
     <script>
-        const items = [
-            "item 1",
-            "item 2",
-            "item 3",
-            "item 4",
-            "item 5",
-            "item 6",
-            "item 7",
-            "item 8",
-            "item 9",
-            "item 10",
-        ];
+      const items = [
+        "item 1",
+        "item 2",
+        "item 3",
+        "item 4",
+        "item 5",
+        "item 6",
+        "item 7",
+        "item 8",
+        "item 9",
+        "item 10",
+      ];
 
-        const pagination = simpleJsPagination(items, 5);
+      const pagination = simpleJsPagination({
+        items,
+        rows: 5,
+        handlePaginatedItems: (items) => {
+          const list = document.getElementById("list");
+          list.innerHTML = "";
+          items.forEach((item) => {
+            list.innerHTML += `<div>${item}</div>`;
+          });
+        }
+      });
 
-        pagination.paginate({
-            handlePaginatedItems: (items) => {
-                const list = document.getElementById("list");
-                items.forEach( item => {
-                    list.innerHTML += `<div>${item}</div>`
-                })
-            }
-        });
+      pagination.paginate();
+      pagination.createPaginationButtons({
+        wrapper: document.getElementById("pagination"),
+      });
 
-        pagination.createPaginationButtons(
-        document.getElementById("pagination")
-        ,{
-            onPaginationButtonClick: (items, page) => {
-                console.log({items,page});
-            }
-        });
     </script>
-</body>
+  </body>
 </html>

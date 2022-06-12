@@ -1,34 +1,27 @@
-const simpleJsPagination = (items, rows_per_page) => {
+const simpleJsPagination = ({ items, rows, handlePaginatedItems }) => {
   let current_page = 1;
   const self = {
-    paginate: ({ page = 1, handlePaginatedItems }) => {
+    paginate: (page = 1) => {
       page--;
 
-      let start = rows_per_page * page;
-      let end = start + rows_per_page;
+      let start = rows * page;
+      let end = start + rows;
       let paginatedItems = items.slice(start, end);
 
       if (handlePaginatedItems != null) {
         handlePaginatedItems(paginatedItems);
       } else return paginatedItems;
     },
-    createPaginationButtons: (
+    createPaginationButtons: ({
       wrapper,
-      {
-        onPaginationButtonClick,
-        buttonsContainerClass = "pagination-buttons",
-        buttonClass = "pagination-button",
-        activeClass = "active",
-      }
-    ) => {
-      if (onPaginationButtonClick == null) {
-        return "An OnClick Handler is needed as second parameter.";
-      }
-
-	  const uuid = self.generateUID();
-	  let page_count = Math.ceil(items.length / rows_per_page);
+      buttonsContainerClass = "pagination-buttons",
+      buttonClass = "pagination-button",
+      activeClass = "active",
+    }) => {
+      const uuid = self.generateUID();
+      let page_count = Math.ceil(items.length / rows);
       let paginationButtons = document.createElement("div");
-	  paginationButtons.classList.add(
+      paginationButtons.classList.add(
         "pagination-" + uuid,
         buttonsContainerClass
       );
@@ -36,19 +29,16 @@ const simpleJsPagination = (items, rows_per_page) => {
       let paginationButton = (page) => {
         let button = document.createElement("button");
         button.setAttribute("type", "button");
-        button.classList.add(
-          buttonClass
-        );
+        button.classList.add(buttonClass);
 
-		if (current_page == page)
-			button.classList.add(activeClass);
+        if (current_page == page) button.classList.add(activeClass);
 
         button.innerHTML = page;
 
         button.addEventListener("click", function () {
           current_page = page;
 
-          onPaginationButtonClick(items, page);
+          self.paginate(current_page);
 
           let current_btn = document.querySelector(
             `.${"pagination-" + uuid} button.active`
@@ -62,7 +52,7 @@ const simpleJsPagination = (items, rows_per_page) => {
       };
 
       for (let i = 1; i < page_count + 1; i++) {
-		let btn = paginationButton(i);
+        let btn = paginationButton(i);
         paginationButtons.appendChild(btn);
       }
 
@@ -79,41 +69,3 @@ const simpleJsPagination = (items, rows_per_page) => {
 
   return self;
 };
-
-// let current_page = 1;
-// let rows = 5;
-
-// const list_element = document.getElementById('list');
-// const pagination_element = document.getElementById('pagination');
-
-// function SetupPagination (items, wrapper, rows_per_page) {
-// 	wrapper.innerHTML = "";
-
-// 	let page_count = Math.ceil(items.length / rows_per_page);
-// 	for (let i = 1; i < page_count + 1; i++) {
-// 		let btn = PaginationButton(i, items);
-// 		wrapper.appendChild(btn);
-// 	}
-// }
-
-// function PaginationButton (page, items) {
-// 	let button = document.createElement('button');
-// 	button.innerText = page;
-
-// 	if (current_page == page) button.classList.add('active');
-
-// 	button.addEventListener('click', function () {
-// 		current_page = page;
-// 		DisplayList(items, list_element, rows, current_page);
-
-// 		let current_btn = document.querySelector('.pagenumbers button.active');
-// 		current_btn.classList.remove('active');
-
-// 		button.classList.add('active');
-// 	});
-
-// 	return button;
-// }
-
-// DisplayList(list_items, list_element, rows, current_page);
-// SetupPagination(list_items, pagination_element, rows);
