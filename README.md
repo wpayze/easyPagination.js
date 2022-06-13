@@ -1,12 +1,6 @@
 # Easy Pagination JS
 
-<<<<<<< HEAD
-
-# A simple library for pagination, compatible with Bootstrap.
-
-A simple library for pagination, **compatible with Bootstrap**.
-
-> > > > > > > b6b788ff1ede6f7a4038a907e216d50bc626c2e2
+A simple library for pagination, compatible with Bootstrap.
 
 Check my website [here](https://wilfredopaiz.com/).
 
@@ -47,7 +41,7 @@ const items = [
 ];
 ```
 
-Create the pagination object and execute `paginate()`
+Create the pagination object
 
 ```js
 const paginationOptions = {
@@ -62,7 +56,11 @@ const paginationOptions = {
     });
   },
 };
+```
 
+Call `easyPagination` and execute `paginate()`
+
+```js
 easyPagination(paginationOptions).paginate();
 ```
 
@@ -70,10 +68,10 @@ easyPagination(paginationOptions).paginate();
 
 | Syntax                | Description                                                                                                  | Default Value |
 | --------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
-| items                 | Items to paginate. (Array)                                                                                   |
+| items                 | Items to paginate. (Array)                                                                                   |               |
 | rows                  | Rows per page.                                                                                               | 10            |
-| buttonsWrapper        | CSS Selector where the buttons where be injected.                                                            |
-| handlePaginatedItems  | Function that receives the paginated items as parameter, if this is null `paginate()` will return the items. |
+| buttonsWrapper        | CSS Selector where the buttons where be injected.                                                            |               |
+| handlePaginatedItems  | Function that receives the paginated items as parameter, if this is null `paginate()` will return the items. |               |
 | buttonsContainerClass | CSS Class for the buttons container.                                                                         | "pagination"  |
 | buttonClass           | CSS Class for each button.                                                                                   | "page-link"   |
 | nextClass             | CSS Class for the "Next" button.                                                                             | "page-link"   |
