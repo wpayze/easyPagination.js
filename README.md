@@ -18,6 +18,23 @@ Add a div for the items, and one for the pagination buttons.
 <div id="pagination"></div>
 ```
 
+Create some example items.
+```
+const items = [
+    "item 1",
+    "item 2",
+    "item 3",
+    "item 4",
+    "item 5",
+    "item 6",
+    "item 7",
+    "item 8"
+    "item 9"
+    "item 10"
+]
+```
+
+
 Create the pagination object and execute `paginate()`
 ```js
 easyPagination({
@@ -38,7 +55,7 @@ easyPagination({
 ## Available Options
 | Syntax      | Description | Default Value|
 | ----------- | ----------- | ----------- |
-| items |Items to paginate.|
+| items |Items to paginate. (Array)|
 |rows|Rows per page|10|
 |buttonsWrapper|HTML element where the buttons where be injected.|
 |handlePaginatedItems|Function that receives the paginated items as parameter, if this is null `paginate()` will return the items.|
