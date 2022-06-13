@@ -1,5 +1,5 @@
 # Easy Pagination JS
-A simple library for pagination, compatible with Bootstrap.
+A simple library for pagination, **compatible with Bootstrap**.
 
 Check my website [here](https://wilfredopaiz.com/).
 
@@ -51,6 +51,8 @@ easyPagination({
     }
 }).paginate();
 ```
+
+Note: you can import Bootstrap CDN in order to show a nice pagination.
 
 
 ## Available Options
