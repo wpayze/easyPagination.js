@@ -46,7 +46,7 @@ easyPagination({
         const list = document.getElementById("list");
         list.innerHTML = "";
         items.forEach((item) => {
-            list.innerHTML += `<li class="list-group-item">${item}</li>`;
+            list.innerHTML += `<div>${item}</div>`;
         });
     }
 }).paginate();
@@ -57,8 +57,8 @@ easyPagination({
 | Syntax      | Description | Default Value|
 | ----------- | ----------- | ----------- |
 | items |Items to paginate. (Array)|
-|rows|Rows per page|10|
-|buttonsWrapper|HTML element where the buttons where be injected.|
+|rows|Rows per page,|10|
+|buttonsWrapper|HTML element where the buttons will be injected.|
 |handlePaginatedItems|Function that receives the paginated items as parameter, if this is null `paginate()` will return the items.|
 |buttonsContainerClass|CSS Class for the buttons container.|"pagination"|
 |buttonClass|CSS Class for each button.|"page-link"|
