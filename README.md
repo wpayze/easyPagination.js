@@ -4,6 +4,7 @@ A simple library for pagination, compatible with Bootstrap.
 Check my website [here](https://wilfredopaiz.com/).
 
 Demo
+See this Demo [here](https://wpayze.github.io/easyPagination/).
 ![Demo](./images/demo.png)
 
 ## Example
@@ -19,7 +20,7 @@ Add a div for the items, and one for the pagination buttons.
 ```
 
 Create some example items.
-```
+```js
 const items = [
     "item 1",
     "item 2",
