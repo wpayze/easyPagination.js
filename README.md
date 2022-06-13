@@ -64,6 +64,8 @@ Call `easyPagination` and execute `paginate()`
 easyPagination(paginationOptions).paginate();
 ```
 
+**Note: you can import Bootstrap CDN for pagination buttons to look nice.**
+
 ## Available Options
 
 | Syntax                | Description                                                                                                  | Default Value |
