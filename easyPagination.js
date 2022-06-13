@@ -118,7 +118,7 @@ const easyPagination = ({
       let paginatedItems = items.slice(start, end);
 
       if (loadButtons && buttonsWrapper)
-        createPaginationButtons({ wrapper: buttonsWrapper });
+        createPaginationButtons({ wrapper: document.querySelector(buttonsWrapper) });
 
       if (handlePaginatedItems) {
         handlePaginatedItems(paginatedItems);
