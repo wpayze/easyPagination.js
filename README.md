@@ -29,8 +29,8 @@ const items = [
     "item 5",
     "item 6",
     "item 7",
-    "item 8"
-    "item 9"
+    "item 8",
+    "item 9",
     "item 10"
 ]
 ```
