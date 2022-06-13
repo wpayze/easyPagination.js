@@ -66,10 +66,19 @@ easyPagination(paginationOptions).paginate();
 
 **Note: you can import Bootstrap CDN for pagination buttons to look nice.**
 
+## Methods
+
+| Syntax         | Parameters                                        | Description                                                      | Example                     |
+| -------------- | ------------------------------------------------- | ---------------------------------------------------------------- | --------------------------- |
+| `paginate()`   | `page` (default: 1), `loadButton` (default: true) | Paginates the items and creates the buttons (by default).        | `pagination.paginate()`     |
+| `next()`       |                                                   | Fires the same trigger than the `next >` button.                 | `pagination.next()`         |
+| `prev()`       |                                                   | Fires the same trigger than the `< prev` button.                 | `pagination.prev()`         |
+| `changeRows()` | `newRows` (default: 10)                           | Paginates again with the rows sent, also re-creates the buttons. | `pagination.changeRows(25)` |
+
 ## Available Options
 
-| Syntax                | Description                                                                                                  | Default Value |
-| --------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
+| Syntax                  | Description                                                                                                  | Default Value |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
 | `items`                 | Items to paginate. (Array)                                                                                   |               |
 | `rows`                  | Rows per page.                                                                                               | 10            |
 | `buttonsWrapper`        | CSS Selector where the buttons where be injected.                                                            |               |

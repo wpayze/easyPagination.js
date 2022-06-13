@@ -163,6 +163,11 @@ const easyPagination = ({
         handlePaginatedItems(paginatedItems);
       } else return paginatedItems;
     },
+    changeRows: (newRows = 10) => {
+      rows = newRows;
+      document.querySelector(".pagination-" + uuid).remove();
+      self.paginate(current_page);
+    }
   };
 
   return self;

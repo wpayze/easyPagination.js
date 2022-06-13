@@ -31,10 +31,10 @@
         items.push("Item " + i);
       }
 
-      easyPagination({
+      const pagination = easyPagination({
         items,
         rows: 5,
-        buttonsWrapper: document.getElementById("pagination"),
+        buttonsWrapper: "#pagination",
         handlePaginatedItems: (items) => {
           const list = document.getElementById("list");
           list.innerHTML = "";
@@ -42,7 +42,9 @@
             list.innerHTML += `<li class="list-group-item">${item}</li>`;
           });
         }
-      }).paginate();
+      });
+
+      pagination.paginate();
 
     </script>
   </body>
