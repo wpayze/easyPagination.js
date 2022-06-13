@@ -64,6 +64,14 @@ Call `easyPagination` and execute `paginate()`
 easyPagination(paginationOptions).paginate();
 ```
 
+Or you can create a `pagination` object to call different methods.
+
+```js
+  const pagination = easyPagination(paginationOptions);
+  pagination.paginate();
+  pagination.changeRows(50);
+```
+
 **Note: you can import Bootstrap CDN for pagination buttons to look nice.**
 
 ## Methods
