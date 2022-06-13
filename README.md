@@ -78,7 +78,7 @@ Or you can create a `pagination` object to call different methods.
 
 | Syntax         | Parameters                                        | Description                                                      | Example                     |
 | -------------- | ------------------------------------------------- | ---------------------------------------------------------------- | --------------------------- |
-| `paginate()`   | `page` (default: 1), `loadButton` (default: true) | Paginates the items and creates the buttons (by default).        | `pagination.paginate()`     |
+| `paginate()`   | `page` (default: 1), `loadButtons` (default: true) | Paginates the items and creates the buttons (by default).        | `pagination.paginate()`     |
 | `next()`       |                                                   | Fires the same trigger than the `next >` button.                 | `pagination.next()`         |
 | `prev()`       |                                                   | Fires the same trigger than the `< prev` button.                 | `pagination.prev()`         |
 | `changeRows()` | `newRows` (default: 10)                           | Paginates again with the rows sent, also re-creates the buttons. | `pagination.changeRows(25)` |
