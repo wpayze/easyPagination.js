@@ -70,16 +70,14 @@ easyPagination(paginationOptions).paginate();
 
 | Syntax                | Description                                                                                                  | Default Value |
 | --------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
-| items                 | Items to paginate. (Array)                                                                                   |               |
-| rows                  | Rows per page.                                                                                               | 10            |
-| buttonsWrapper        | CSS Selector where the buttons where be injected.                                                            |               |
-| handlePaginatedItems  | Function that receives the paginated items as parameter, if this is null `paginate()` will return the items. |               |
-| buttonsContainerClass | CSS Class for the buttons container.                                                                         | "pagination"  |
-| buttonClass           | CSS Class for each button.                                                                                   | "page-link"   |
-| nextClass             | CSS Class for the "Next" button.                                                                             | "page-link"   |
-| prevClass             | CSS Class for the "Prev" button.                                                                             | "page-link"   |
-| nextText              | Text for the "Next" button.                                                                                  | "next >"      |
-| prevText              | Text for the "Prev" button.                                                                                  | "< prev"      |
-| activeClass           | CSS Class for the current pagination button.                                                                 | "active"      |
-
-Note: you can import Bootstrap CDN in order to show a nice pagination.
+| `items`                 | Items to paginate. (Array)                                                                                   |               |
+| `rows`                  | Rows per page.                                                                                               | 10            |
+| `buttonsWrapper`        | CSS Selector where the buttons where be injected.                                                            |               |
+| `handlePaginatedItems`  | Function that receives the paginated items as parameter, if this is null `paginate()` will return the items. |               |
+| `buttonsContainerClass` | CSS Class for the buttons container.                                                                         | "pagination"  |
+| `buttonClass`           | CSS Class for each button.                                                                                   | "page-link"   |
+| `nextClass`             | CSS Class for the "Next" button.                                                                             | "page-link"   |
+| `prevClass`             | CSS Class for the "Prev" button.                                                                             | "page-link"   |
+| `nextText`              | Text for the "Next" button.                                                                                  | "next >"      |
+| `prevText`              | Text for the "Prev" button.                                                                                  | "< prev"      |
+| `activeClass`           | CSS Class for the current pagination button.                                                                 | "active"      |
