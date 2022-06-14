@@ -105,7 +105,10 @@ const easyPagination = ({
 
   const uuid = generateUID();
 
-  if (!rows) rows = 10;
+  if (!rows) 
+    rows = 10;
+
+  rows = parseInt(rows);
 
   let current_page = 1;
 
@@ -164,7 +167,15 @@ const easyPagination = ({
       } else return paginatedItems;
     },
     changeRows: (newRows = 10) => {
-      rows = newRows;
+      rows = parseInt(newRows);
+      document.querySelector(".pagination-" + uuid).remove();
+      self.paginate(current_page);
+    },
+    changeItems: (newItems) => {
+      if (!newItems)
+        return false;
+
+      items = newItems;
       document.querySelector(".pagination-" + uuid).remove();
       self.paginate(current_page);
     }

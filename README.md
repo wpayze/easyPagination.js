@@ -67,21 +67,22 @@ easyPagination(paginationOptions).paginate();
 Or you can create a `pagination` object to call different methods.
 
 ```js
-  const pagination = easyPagination(paginationOptions);
-  pagination.paginate();
-  pagination.changeRows(50);
+const pagination = easyPagination(paginationOptions);
+pagination.paginate();
+pagination.changeRows(50);
 ```
 
 **Note: you can import Bootstrap CDN for pagination buttons to look nice.**
 
 ## Methods
 
-| Syntax         | Parameters                                        | Description                                                      | Example                     |
-| -------------- | ------------------------------------------------- | ---------------------------------------------------------------- | --------------------------- |
-| `paginate()`   | `page` (default: 1), `loadButtons` (default: true) | Paginates the items and creates the buttons (by default).        | `pagination.paginate()`     |
-| `next()`       |                                                   | Fires the same trigger than the `next >` button.                 | `pagination.next()`         |
-| `prev()`       |                                                   | Fires the same trigger than the `< prev` button.                 | `pagination.prev()`         |
-| `changeRows()` | `newRows` (default: 10)                           | Paginates again with the rows sent, also re-creates the buttons. | `pagination.changeRows(25)` |
+| Syntax          | Parameters                                         | Description                                               | Example                         |
+| --------------- | -------------------------------------------------- | --------------------------------------------------------- | ------------------------------- |
+| `paginate()`    | `page` (default: 1), `loadButtons` (default: true) | Paginates the items and creates the buttons (by default). | `pagination.paginate()`         |
+| `changeRows()`  | `newRows` (default: 10)                            | Updates the **rows per page**, also updates the buttons.  | `pagination.changeRows(25)`     |
+| `changeItems()` | `newItems`                                         | Updates the **items**, also updates the buttons.          | `pagination.changeItems(items)` |
+| `next()`        |                                                    | Fires `next >` button behavior.                           | `pagination.next()`             |
+| `prev()`        |                                                    | Fires the `< prev` button behavior.                       | `pagination.prev()`             |
 
 ## Available Options
 
