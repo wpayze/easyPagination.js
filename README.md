@@ -76,13 +76,13 @@ pagination.changeRows(50);
 
 ## Methods
 
-| Syntax          | Parameters                                         | Description                                               | Example                         |
-| --------------- | -------------------------------------------------- | --------------------------------------------------------- | ------------------------------- |
-| `paginate()`    | `page` (default: 1), `loadButtons` (default: true) | Paginates the items and creates the buttons (by default). | `pagination.paginate()`         |
-| `changeRows()`  | `newRows` (default: 10)                            | Updates the **rows per page**, also updates the buttons.  | `pagination.changeRows(25)`     |
-| `changeItems()` | `newItems`                                         | Updates the **items**, also updates the buttons.          | `pagination.changeItems(items)` |
-| `next()`        |                                                    | Fires `next >` button behavior.                           | `pagination.next()`             |
-| `prev()`        |                                                    | Fires the `< prev` button behavior.                       | `pagination.prev()`             |
+| Syntax          | Parameters                                         | Description                                                                    | Example                         |
+| --------------- | -------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------- |
+| `paginate()`    | `page` (default: 1), `loadButtons` (default: true) | Paginates the items and creates the buttons (by default).                      | `pagination.paginate()`         |
+| `changeRows()`  | `newRows` (default: 10)                            | Updates the **rows per page**, also updates the buttons.                       | `pagination.changeRows(25)`     |
+| `changeItems()` | `newItems`                                         | Updates the **items**, also changes current page to 1 and updates the buttons. | `pagination.changeItems(items)` |
+| `next()`        |                                                    | Fires `next >` button behavior.                                                | `pagination.next()`             |
+| `prev()`        |                                                    | Fires the `< prev` button behavior.                                            | `pagination.prev()`             |
 
 ## Available Options
 

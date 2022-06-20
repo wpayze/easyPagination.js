@@ -24,9 +24,7 @@ const easyPagination = ({
     return firstPart + secondPart;
   };
 
-  const createPaginationButtons = ({
-    wrapper
-  }) => {
+  const createPaginationButtons = ({ wrapper }) => {
     let page_count = Math.ceil(items.length / rows);
 
     let paginationButtons = document.createElement("div");
@@ -105,8 +103,7 @@ const easyPagination = ({
 
   const uuid = generateUID();
 
-  if (!rows) 
-    rows = 10;
+  if (!rows) rows = 10;
 
   rows = parseInt(rows);
 
@@ -121,7 +118,9 @@ const easyPagination = ({
       let paginatedItems = items.slice(start, end);
 
       if (loadButtons && buttonsWrapper)
-        createPaginationButtons({ wrapper: document.querySelector(buttonsWrapper) });
+        createPaginationButtons({
+          wrapper: document.querySelector(buttonsWrapper),
+        });
 
       if (handlePaginatedItems) {
         handlePaginatedItems(paginatedItems);
@@ -131,7 +130,7 @@ const easyPagination = ({
       let page = current_page - 1;
       page++;
 
-      if (current_page + 1 > (getAllBtns().length - 2)) return;
+      if (current_page + 1 > getAllBtns().length - 2) return;
 
       current_page++;
       let start = rows * page;
@@ -150,7 +149,7 @@ const easyPagination = ({
       let page = current_page - 1;
       page--;
 
-      if ( (current_page - 1) < 1) return;
+      if (current_page - 1 < 1) return;
 
       current_page--;
 
@@ -172,13 +171,14 @@ const easyPagination = ({
       self.paginate(current_page);
     },
     changeItems: (newItems) => {
-      if (!newItems)
-        return false;
+      if (!newItems) return false;
 
       items = newItems;
       document.querySelector(".pagination-" + uuid).remove();
-      self.paginate(current_page);
-    }
+
+      current_page = 1;
+      self.paginate(1);
+    },
   };
 
   return self;
