@@ -27,7 +27,7 @@ Add a div for the items, and one for the pagination buttons.
 Create some example items.
 
 ```js
-const items = [
+const itemsToPaginate = [
   "item 1",
   "item 2",
   "item 3",
@@ -45,13 +45,14 @@ Create the pagination object
 
 ```js
 const paginationOptions = {
-  items,
+  items: itemsToPaginate,
   rows: 5,
   buttonsWrapper: "#pagination",
-  handlePaginatedItems: (items) => {
+  handlePaginatedItems: (paginatedItems) => {
+    //Filling the list with the paginated items.
     const list = document.getElementById("list");
     list.innerHTML = "";
-    items.forEach((item) => {
+    paginatedItems.forEach((item) => {
       list.innerHTML += `<div>${item}</div>`;
     });
   },
@@ -90,7 +91,7 @@ pagination.changeRows(50);
 | ----------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
 | `items`                 | Items to paginate. (Array)                                                                                   |               |
 | `rows`                  | Rows per page.                                                                                               | 10            |
-| `buttonsWrapper`        | CSS Selector where the buttons are going to be injected.                                                            |               |
+| `buttonsWrapper`        | CSS Selector where the buttons are going to be injected.                                                     |               |
 | `handlePaginatedItems`  | Function that receives the paginated items as parameter, if this is null `paginate()` will return the items. |               |
 | `buttonsContainerClass` | CSS Class for the buttons container.                                                                         | "pagination"  |
 | `buttonClass`           | CSS Class for each button.                                                                                   | "page-link"   |

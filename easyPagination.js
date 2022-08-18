@@ -1,6 +1,6 @@
 const easyPagination = ({
   items,
-  rows,
+  rows = 10,
   handlePaginatedItems,
   buttonsWrapper,
   buttonsContainerClass = "pagination",
@@ -25,8 +25,6 @@ const easyPagination = ({
   };
 
   const createPaginationButtons = ({ wrapper }) => {
-    let page_count = Math.ceil(items.length / rows);
-
     let paginationButtons = document.createElement("div");
 
     paginationButtons.classList.add(
@@ -39,14 +37,14 @@ const easyPagination = ({
       button.setAttribute("type", "button");
       button.classList.add(buttonClass);
 
-      if (current_page == page) button.classList.add(activeClass);
+      if (currentPage == page) button.classList.add(activeClass);
 
       button.innerHTML = page;
 
       button.addEventListener("click", function () {
-        current_page = page;
+        currentPage = page;
 
-        self.paginate(current_page, false);
+        self.paginate(currentPage, false);
 
         let current_btn = getActiveBtn();
         current_btn.classList.remove("active");
@@ -83,7 +81,7 @@ const easyPagination = ({
 
     paginationButtons.appendChild(prevBtn);
 
-    for (let i = 1; i < page_count + 1; i++) {
+    for (let i = 1; i < pageCount + 1; i++) {
       let btn = paginationButton(i);
       paginationButtons.appendChild(btn);
     }
@@ -102,12 +100,10 @@ const easyPagination = ({
   };
 
   const uuid = generateUID();
-
-  if (!rows) rows = 10;
-
   rows = parseInt(rows);
-
-  let current_page = 1;
+  let currentPage = 1;
+  let pageCount = Math.ceil(items.length / rows);
+  const hasButtons = typeof buttonsWrapper != "undefined";
 
   const self = {
     paginate: (page = 1, loadButtons = true) => {
@@ -127,39 +123,37 @@ const easyPagination = ({
       } else return paginatedItems;
     },
     next: () => {
-      let page = current_page - 1;
-      page++;
-
-      if (current_page + 1 > getAllBtns().length - 2) return;
-
-      current_page++;
+      if (currentPage >= pageCount) return;
+      currentPage++;
+      let page = currentPage - 1;
       let start = rows * page;
       let end = start + rows;
       let paginatedItems = items.slice(start, end);
 
-      let current_btn = getActiveBtn();
-      current_btn.classList.remove("active");
-      current_btn.nextElementSibling.classList.add("active");
+      if (hasButtons) {
+        let current_btn = getActiveBtn();
+        current_btn.classList.remove("active");
+        current_btn.nextElementSibling.classList.add("active");
+      }
 
       if (handlePaginatedItems) {
         handlePaginatedItems(paginatedItems);
       } else return paginatedItems;
     },
     prev: () => {
-      let page = current_page - 1;
-      page--;
+      if (currentPage === 1) return;
+      currentPage--;
 
-      if (current_page - 1 < 1) return;
-
-      current_page--;
-
+      let page = currentPage - 1;
       let start = rows * page;
       let end = start + rows;
       let paginatedItems = items.slice(start, end);
 
-      let current_btn = getActiveBtn();
-      current_btn.classList.remove("active");
-      current_btn.previousElementSibling.classList.add("active");
+      if (hasButtons) {
+        let currentButton = getActiveBtn();
+        currentButton.classList.remove("active");
+        currentButton.previousElementSibling.classList.add("active");
+      }
 
       if (handlePaginatedItems) {
         handlePaginatedItems(paginatedItems);
@@ -168,15 +162,17 @@ const easyPagination = ({
     changeRows: (newRows = 10) => {
       rows = parseInt(newRows);
       document.querySelector(".pagination-" + uuid).remove();
-      self.paginate(current_page);
+      self.paginate(currentPage);
     },
     changeItems: (newItems) => {
       if (!newItems) return false;
 
-      items = newItems;
-      document.querySelector(".pagination-" + uuid).remove();
+      document.querySelector(".pagination-" + uuid)?.remove();
 
-      current_page = 1;
+      items = newItems;
+      pageCount = Math.ceil(items.length / rows);
+      currentPage = 1;
+
       self.paginate(1);
     },
   };
