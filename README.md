@@ -2,8 +2,6 @@
 
 A simple library for pagination, compatible with Bootstrap.
 
-Check my website [here](https://wilfredopaiz.com/).
-
 ## Demo
 
 Check this Demo [here](https://wpayze.github.io/easyPagination/).
